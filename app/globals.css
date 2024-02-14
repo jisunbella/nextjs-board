@@ -2,21 +2,47 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: rgb(0, 132, 255);
+}
+
+.list-btn-write {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
 .list-bg {
-  background: rgb(249, 250, 255);
+  /* background: rgb(249, 250, 255);s */
   padding: 10px;
 }
 
 .list-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   background: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 5px;
-  box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+
+  padding: 2px 20px;
+  border-bottom: 1px solid black;
+
+  opacity: 1;
+  transition: all 1s;
+
+  /* border-radius: 10px; */
+  /* margin-bottom: 5px; */
+  /* box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px; */
 }
 
 .list-item h4 {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 800;
   margin: 0;
 }
@@ -24,6 +50,15 @@ body {
 .list-item p {
   color: grey;
   margin: 5px 0px;
+}
+
+.list-item span:hover {
+  cursor: pointer;
+}
+
+.list-btn {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .p-20 {
@@ -38,16 +73,23 @@ input {
 }
 
 button {
-  padding: 10px 15px;
-  background: lightgray;
-  border: none;
+  padding: 5px 15px;
+  border: 1px solid black;
   border-radius: 5px;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  /* background: rgb(249, 250, 255); */
 }
 
-a {
-  text-decoration: none;
-  color: black;
+.list-btn-write button:hover, .btn-write a:hover {
+  background: black;
+  color: white;
 }
+
+
+
+/* navbar */
 
 .navbar {
   background: white;

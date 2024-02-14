@@ -6,26 +6,42 @@ export default function ListItem(props: any) {
 
   return (
     result?.map((el: any, index: number) => (
-      <div className="list-item" key={index}>
+      <div className="item list-item" key={index}>
         <Link href={`/detail/${el._id}`}>
           <h4>{el.title}</h4>
         </Link>
-        <Link href={`/edit/${el._id}`}>✏️</Link>
-        <span onClick={() => {
-          fetch(`/api/post/delete`, {
-            method: "DELETE",
-            body: JSON.stringify({
-              _id: el._id
+        <div className="list-btn">
+          <Link href={`/edit/${el._id}`}>✏️</Link>
+          <span onClick={(event: any) => {
+            fetch(`/api/delete/${el._id}`).then((res) => {
+              res.json();
+            }).then((res) => {
+              // location.reload();
+              event.target.parentElement.parentElement.style.display = "none";
+              // setTimeout(() => {
+              // }, 1000)
+            }).catch((error) => {
+              console.log(error);
             })
-          }).then((res) => {
-            return res.json();
-          }).then((res) => {
-            console.log(res);
-          }).catch((error) => {
-            console.log(error);
-          })
-        }}>🗑️</span>
-        <p>1월 1일</p>
+
+            // fetch 사용해서 ajax 통신
+            // fetch(`/api/post/delete`, {
+            //   method: "DELETE",
+            //   body: JSON.stringify({
+            //     _id: el._id
+            //   })
+            // }).then((res) => {
+            //   return res.json();
+            // }).then((res) => {
+            //   e.target.parentElement.parentElement.style.opacity = 0;
+            //   setTimeout(() => {
+            //     e.target.parentElement.parentElement.style.display = "none";
+            //   }, 1000)
+            // }).catch((error) => {
+            //   console.log(error);
+            // })
+          }}>🗑️</span>
+        </div>
       </div>
     ))
   )

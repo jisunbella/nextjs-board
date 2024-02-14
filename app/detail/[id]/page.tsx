@@ -9,8 +9,8 @@ export default async function Detail(props: any) {
   return (
     <div className="p-20">
       <h4>상세페이지</h4>
-      <h4>{ result?.title }</h4>
-      <p>{ result?.content }</p>
+      <h4>제목: { result?.title }</h4>
+      <p>내용: { result?.content }</p>
     </div>
   )
 }
