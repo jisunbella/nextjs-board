@@ -82,7 +82,7 @@ button {
   /* background: rgb(249, 250, 255); */
 }
 
-.list-btn-write button:hover, .btn-write a:hover {
+.btn-write:hover, .btn-write a:hover {
   background: black;
   color: white;
 }

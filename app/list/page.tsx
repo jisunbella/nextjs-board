@@ -8,8 +8,6 @@ export default async function List() {
   const db = (await connectDB).db("myapp");
   const result = await db.collection("board").find().toArray();
 
-  console.log(result);
-
   return (
     <div className="container list-bg">
       <div className="list-btn-write">
