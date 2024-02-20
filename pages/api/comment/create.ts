@@ -25,6 +25,7 @@ export default async function handler(req: any, res: any) {
       content: req.body.comment,
       parentId: new ObjectId(req.body._parentId),
       author: session.user?.email,
+      author_name: session.user?.name
     }
     
     const db = (await connectDB).db("myapp");
