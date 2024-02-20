@@ -11,7 +11,7 @@ export default async function List() {
   return (
     <div className="container list-bg">
       <div className="list-btn-write">
-        <button className="btn-write">
+        <button>
           <Link href="/write">글쓰기</Link>
         </button>
       </div>

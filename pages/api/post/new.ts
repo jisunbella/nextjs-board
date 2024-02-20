@@ -1,13 +1,19 @@
 import { connectDB } from "@/util/database"
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req: any, res: any) {  
+  const session = await getServerSession(req, res, authOptions);
+
+  if (session) {
+    req.body.author = session.user?.email;
+  }
+
   if (req.method === "POST") {
     if (req.body.title.trim() === "") {
       console.log("제목을 입력하세요.")
       return res.status(500).redirect("/list");
     }
-
-    console.log(req.body)
     
     try {
       const db = (await connectDB).db("myapp");

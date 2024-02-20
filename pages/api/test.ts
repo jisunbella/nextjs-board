@@ -1,6 +1,4 @@
 export default function handler(request: any, response: any) {
-  console.log(request.query);
-
   if (request.method === "POST") {
     return response.status(200).json("Post");
   }

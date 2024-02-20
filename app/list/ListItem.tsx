@@ -13,7 +13,9 @@ export default function ListItem(props: any) {
         <div className="list-btn">
           <Link href={`/edit/${el._id}`}>✏️</Link>
           <span onClick={(event: any) => {
-            fetch(`/api/delete/${el._id}`).then((res) => {
+            fetch(`/api/post/delete/${el._id}`, {
+              method: "DELETE"
+            }).then((res) => {
               res.json();
             }).then((res) => {
               // location.reload();
