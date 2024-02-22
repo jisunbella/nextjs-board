@@ -6,7 +6,8 @@ export default async function handler(req: any, res: any) {
   const session = await getServerSession(req, res, authOptions);
 
   if (session) {
-    req.body.author = session.user?.email;
+    req.body.author_id = session.user?.email;
+    req.body.author_name = session.user?.name;
   }
 
   if (req.method === "POST") {
@@ -16,6 +17,9 @@ export default async function handler(req: any, res: any) {
     }
     
     try {
+      // 글 작성 시간 추가
+      req.body.created_time = new Date();
+
       const db = (await connectDB).db("myapp");
       const result = await db.collection("board").insertOne(req.body);
       
