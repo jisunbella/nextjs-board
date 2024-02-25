@@ -8,13 +8,13 @@ export default async function Detail(props: any) {
 
   return (
     <div className="container">
-      <div>
-        <h4>제목: {result?.title}</h4>
-        <span>작성자: </span>
-        <p>내용: {result?.content}</p>
-        <hr />
-        <Comment _parentId={result?._id.toString()} />
+      <div className='content-box'>
+        <h4 className='content-title'>{result?.title}</h4>
+        <div className='content-author'>{result?.author_name}</div>
+        <p className='content-text'>{result?.content}</p>
       </div>
+      <hr />
+      <Comment _parentId={result?._id.toString()} />
     </div>
   )
 }

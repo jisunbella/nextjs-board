@@ -175,3 +175,29 @@ button {
   font-weight: 900;
   font-size: larger;
 }
+
+.content-box {
+  width: 100%;
+}
+
+.content-title {
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.content-author {
+  padding-bottom: 10px;
+}
+
+.content-text {
+  padding-bottom: 70px;
+}
+
+.comment-box {
+  width: 100%;
+}
+
+.comment-title {
+  padding-bottom: 10px 0;
+}

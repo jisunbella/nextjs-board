@@ -41,32 +41,36 @@ export default function Comment(props: { _parentId: string }) {
   };
 
   return (
-    <div>
-      <h4>댓글</h4>
+    <div className='comment-box'>
+      <h4 className='comment-title'>댓글</h4>
       <div>
         {
           commentList.length > 0
             ? commentList.map((el: any, index: number) => (
-                <div key={index}>
-                  <span>{el.content}</span> - 
-                  <span>{el.author_name}</span>
-                  <button>🩷</button><span>0</span>
-                </div>
-              ))
+              <div key={index}>
+                <span>{el.content}</span> -
+                <span>{el.author_name}</span>
+                <button>🩷</button><span>0</span>
+              </div>
+            ))
             : <div>댓글이 없습니다.</div>
         }
       </div>
       <hr />
-      <input
-        onChange={(e) => {
-          setComment(e.target.value)
-        }}
-        value={comment}
-        onKeyUp={handleOnKeyUp}
-      />
-      <button
-        onClick={handleInput}
-      >등록</button>
+      <div className='comment-register'>
+        <input
+          onChange={(e) => {
+            setComment(e.target.value)
+          }}
+          value={comment}
+          onKeyUp={handleOnKeyUp}
+          className="comment-input"
+        />
+        <button
+          onClick={handleInput}
+          className="comment-btn"
+        >등록</button>
+      </div>
     </div>
   )
 }
