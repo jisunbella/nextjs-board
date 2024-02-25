@@ -179,10 +179,14 @@ button {
   width: 100%;
 }
 
+
+/* detail 페이지 */
+
 .content-title {
   padding-bottom: 20px;
   font-weight: 700;
   font-size: 1.5rem;
+  width: 100%;
 }
 
 .content-author {
@@ -195,6 +199,7 @@ button {
   padding-top: 20px;
   padding-bottom: 70px;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 
@@ -230,8 +235,17 @@ button {
   width: 100%;
 }
 
-.comment-text {
+/* 새 글 작성 페이지 */
+.content-title-write, .content-text-write {
+  border: none;
+  border-bottom: 1px solid #ddd;
 }
 
-.comment-author {
+.below-btn {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-btn, .cancel-btn {
+  margin: 0 10px;
 }
