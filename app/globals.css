@@ -133,7 +133,6 @@ input {
 button {
   padding: 5px 15px;
   border: 1px solid black;
-  border-radius: 5px;
   background: #fff;
   font-size: 12px;
   font-weight: 800;
@@ -181,27 +180,58 @@ button {
 }
 
 .content-title {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   font-weight: 700;
   font-size: 1.5rem;
 }
 
 .content-author {
   padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+
 }
 
 .content-text {
+  padding-top: 20px;
   padding-bottom: 70px;
+  border-bottom: 1px solid #ddd;
 }
 
-.comment-register {
-
-}
 
 .comment-box {
-  width: 100%;
+  width: 96%;
+  margin: 0 auto;
 }
 
 .comment-title {
-  padding-bottom: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.comment-register {
+  display: flex;
+}
+
+.comment-input {
+  width: 90%;
+  height: 40px;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.comment-btn {
+  width: 10%;
+  height: 40px;
+  margin-top: 8px;
+}
+
+.comment-content {
+  margin: 17px 0;
+  width: 100%;
+}
+
+.comment-text {
+}
+
+.comment-author {
 }

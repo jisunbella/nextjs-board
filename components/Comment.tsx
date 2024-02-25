@@ -47,16 +47,15 @@ export default function Comment(props: { _parentId: string }) {
         {
           commentList.length > 0
             ? commentList.map((el: any, index: number) => (
-              <div key={index}>
-                <span>{el.content}</span> -
-                <span>{el.author_name}</span>
-                <button>🩷</button><span>0</span>
+              <div key={index} className="comment-content">
+                <div className='comment-author'>{el.author_name}</div>
+                <div className='comment-text'>{el.content}</div>
+                {/* <button>🩷</button><span>0</span> */}
               </div>
             ))
             : <div>댓글이 없습니다.</div>
         }
       </div>
-      <hr />
       <div className='comment-register'>
         <input
           onChange={(e) => {
@@ -65,6 +64,7 @@ export default function Comment(props: { _parentId: string }) {
           value={comment}
           onKeyUp={handleOnKeyUp}
           className="comment-input"
+          placeholder='댓글을 입력해 주세요.'
         />
         <button
           onClick={handleInput}
