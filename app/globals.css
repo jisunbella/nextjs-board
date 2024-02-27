@@ -128,6 +128,8 @@ input {
   padding: 10px;
   display: block;
   margin-bottom: 10px;
+  border: 1px solid #c2c1c1;
+  border-radius: 5px;
 }
 
 button {
@@ -137,6 +139,7 @@ button {
   font-size: 12px;
   font-weight: 800;
   margin: 0 3px;
+  /* border-radius: 5px; */
   /* background: rgb(249, 250, 255); */
 }
 
@@ -259,4 +262,30 @@ button {
 
 .postbtns-edit, .postbtns-delete {
   margin-left: 10px;
+}
+
+
+/* 회원가입 */
+.signup {
+}
+
+.signup-title {
+  text-align: center;
+  font-size: large;
+  margin-bottom: 30px;
+}
+
+.signup-input {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-input-label {
+  width: 80px;
+  padding-top: 10px;
+}
+
+.signup-input-box {
+  width: 300px;
+  padding-top: 10px;
 }
