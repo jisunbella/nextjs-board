@@ -8,13 +8,23 @@ export default async function Edit(props: any) {
 
   return (
     <div className="container">
-      <h4>수정하기</h4>
       <form action="/api/post/edit/" method="POST">
-        <input name="_id" defaultValue={result?._id.toString()} style={{ display: "none" }} />
-        <input name="title" defaultValue={result?.title} />
-        <input name="content" defaultValue={result?.content} />
-        <button type="submit">수정</button>
-        <button><Link href="/list">취소</Link></button>
+        <input
+          name="_id"
+          defaultValue={result?._id.toString()}
+          style={{ display: "none" }} />
+        <input
+          className="content-title content-title-write"
+          name="title"
+          defaultValue={result?.title} />
+        <input
+          className="content-text content-text-write"
+          name="content"
+          defaultValue={result?.content} />
+        <div className="below-btn">
+          <button type="submit" className="register-btn">수정</button>
+          <button><Link href="/list" className="cancel-btn">취소</Link></button>
+        </div>
       </form>
     </div>
   )
