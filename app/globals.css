@@ -249,3 +249,12 @@ button {
 .register-btn, .cancel-btn {
   margin: 0 10px;
 }
+
+.postbtns {
+  display: block;
+  float: right;
+}
+
+.postbtns-edit, .postbtns-delete {
+  margin-left: 10px;
+}

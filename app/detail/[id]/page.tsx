@@ -1,6 +1,7 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import Comment from "../../../components/Comment";
+import PostBtns from "@/components/PostBtns";
 
 export default async function Detail(props: any) {
   const db = (await connectDB).db("myapp");
@@ -8,6 +9,7 @@ export default async function Detail(props: any) {
 
   return (
     <div className="container">
+      <PostBtns postId={props.params.id} />
       <div className='content-box'>
         <h4 className='content-title'>{result?.title}</h4>
         <div className='content-author'>작성자: {result?.author_name}</div>
