@@ -1,6 +1,6 @@
 "use client"
 
-export default function Error({error, reset}) {
+export default function Error() {
   return (
     <div className="container">
       <h4>Error!</h4>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Comment(props: { _parentId: string | undefined }) {
+export default function Comment(props: { _parentId: any }) {
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState<any[]>([]);
 
