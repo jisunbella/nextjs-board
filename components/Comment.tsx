@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-export default function Comment(props: { _parentId: any }) {
+export default function Comment(props: any) {
+  const { _parentId } = props;
   const [comment, setComment] = useState("");
   const [commentList, setCommentList] = useState<any[]>([]);
 
+  
   useEffect(() => {
-    fetch(`/api/comment/list?id=${props._parentId}`)
+    console.log("_parentId", _parentId)
+    fetch(`/api/comment/list?id=${_parentId}`)
       .then(res => res.json())
       .then((data: any) => {
         setCommentList(data);
@@ -19,12 +22,12 @@ export default function Comment(props: { _parentId: any }) {
       method: "POST",
       body: JSON.stringify({
         comment: comment,
-        _parentId: props._parentId
+        _parentId: _parentId
       })
     })
       .then((res) => res.json())
       .then((data) => {
-        fetch(`/api/comment/list?id=${props._parentId}`)
+        fetch(`/api/comment/list?id=${_parentId}`)
           .then(res => res.json())
           .then((data: any) => {
             setCommentList(data);
@@ -50,7 +53,6 @@ export default function Comment(props: { _parentId: any }) {
               <div key={index} className="comment-content">
                 <div className='comment-author'>{el.author_name}</div>
                 <div className='comment-text'>{el.content}</div>
-                {/* <button>🩷</button><span>0</span> */}
               </div>
             ))
             : <div>댓글이 없습니다.</div>

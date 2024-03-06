@@ -1,7 +1,8 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {    
     const newData = {
       title: req.body.title,
@@ -10,14 +11,15 @@ export default async function handler(req: any, res: any) {
     
     try {
       const db = (await connectDB).db("myapp");
-      const result = await db.collection("board").updateOne({
+      await db.collection("board").updateOne({
         // 수정할 게시물 정보
         _id: new ObjectId(req.body._id)
       }, {
         $set: newData
       });
   
-      return res.redirect(302, "/list");
+      res.redirect(302, "/list");
+
     } catch (error) {
       console.log(error);
     }

@@ -13,14 +13,6 @@ export default async function handler(req: any, res: any) {
   if (req.method == "POST") {
     req.body = JSON.parse(req.body);
 
-    /** comment document 형태
-     {
-        id: new ObjectId(),
-        content: string,
-        author: string,
-        parent: ObjectId(parent의 id)
-      }
-    */
     const newComment = {
       content: req.body.comment,
       parentId: new ObjectId(req.body._parentId),

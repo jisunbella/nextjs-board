@@ -8,8 +8,6 @@ const PostBtns = (props: any) => {
 
   const deletePost = () => {
     const answer = window.confirm("삭제하시겠습니까?");
-    console.log("삭제?", answer);
-
     if (answer) {
       fetch(`/api/post/delete/${postId}`, {
         method: "DELETE"

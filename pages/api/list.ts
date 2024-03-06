@@ -1,15 +1,11 @@
 import { connectDB } from "@/util/database";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(request: any, response: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const db = (await connectDB).db("myapp");
-  const result = await db
-    .collection("board")
-    .find()
-    .sort({ created_time: -1 }) // 날짜 내림차순인데 흠....
-    .toArray();
-  
+  const result = await db.collection("board").find().toArray();
 
-  if (request.method === "GET") {
-    return response.status(200).json(result);
+  if (req.method === "GET") {
+    res.status(200).json(result);
   }
 }

@@ -1,21 +1,15 @@
-import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
-import Comment from "../../../components/Comment";
-import PostBtns from "@/components/PostBtns";
+import Post from "@/components/Post";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+
 
 export default async function Detail(props: any) {
-  const db = (await connectDB).db("myapp");
-  const result = await db.collection("board").findOne({ _id: new ObjectId(props.params.id) });
-
+  const postId = props.params.id; // string 형태의 id값
+  const session = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
+ 
   return (
     <div className="container">
-      <PostBtns postId={props.params.id} />
-      <div className='content-box'>
-        <h4 className='content-title'>{result?.title}</h4>
-        <div className='content-author'>작성자: {result?.author_name}</div>
-        <p className='content-text'>{result?.content}</p>
-      </div>
-      <Comment _parentId={result?._id.toString()} />
+      <Post postId={postId} session={session} />
     </div>
   )
 }

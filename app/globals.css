@@ -22,7 +22,7 @@ a:hover {
 
 .container {
   margin: 0 auto;
-  padding: 2% 10%;
+  padding: 2% 20%;
 }
 
 /* 게시판 */
@@ -201,7 +201,7 @@ button {
 
 .content-text {
   padding-top: 20px;
-  padding-bottom: 70px;
+  padding-bottom: 80px;
   border-bottom: 1px solid #ddd;
   width: 100%;
 }

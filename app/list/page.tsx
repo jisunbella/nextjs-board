@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 export default async function List() {
   const db = (await connectDB).db("myapp");
-  const result = await db.collection("board").find().toArray();
+  const result = await db.collection("board").find().sort({created_time: -1}).toArray();
 
   return (
     <div className="container list-bg">

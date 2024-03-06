@@ -5,7 +5,7 @@ import LoginBtn from "../components/LoginBtn";
 import LogoutBtn from "../components/LogoutBtn";
 import SignUpBtn from "../components/SignUpBtn";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth].js";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const metadata: Metadata = {
   title: "게시판",
@@ -24,7 +24,7 @@ export default async function RootLayout({
       <body>
         <div className="navbar container"> 
           <div className="navbar-logo">
-            <Link href="/" className="logo">게시판</Link> 
+            {/* <Link href="/" className="logo">게시판</Link>  */}
           </div>
           <span>
             <Link href="/list">게시판</Link> 
