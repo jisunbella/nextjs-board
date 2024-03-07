@@ -3,16 +3,22 @@ import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const _id = typeof req.query._id === "string" ? req.query._id : "";
+  const _id = req.query.id as string;
 
-  if (!_id) res.status(500).json("오류가 발생했습니다.");
+  if (!_id) {
+    return res.status(400).json({ error: "Parameter _id is required." });
+  }
   
   const db = (await connectDB).db("myapp");
-  const result = await db.collection("comment").find({
-    parentId: new ObjectId(_id) // todo: 왜 밑줄인지..
-  }).toArray();
 
-  if (req.method === "GET") {
+  try {
+    const result = await db.collection("comment").find({
+      parentId: new ObjectId(_id) // todo: 왜 밑줄인지..
+    }).toArray();
+
     res.status(200).json(result);
+  } catch (error) {
+    console.error("Error fetching comments:", error);
+    return res.status(500).json({ error: "An error occurred while fetching comments." });
   }
 }
