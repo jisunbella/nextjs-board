@@ -12,12 +12,20 @@ export const metadata: Metadata = {
   description: "by 지선",
 };
 
+type SessionType = {
+  user?: {
+    name: string | undefined | null;
+    email: string | undefined | null;
+  }
+} | null
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let session = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
+  let session: SessionType = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
+  console.log(session)
 
   return (
     <html lang="en">

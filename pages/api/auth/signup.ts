@@ -1,10 +1,10 @@
 import { connectDB } from "@/util/database";
 import bcrypt from "bcrypt"; // 흠... 왜 밑줄?
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: any, res: any) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (!req.body.email && !req.body.password && !req.body.name) {
-    console.log("내용을 입력하세요.");
-    return;
+    res.status(500).json("내용을 입력하세요.");
   }
 
   if (req.method === "POST") {
@@ -19,8 +19,7 @@ export default async function handler(req: any, res: any) {
     const result = await db.collection("user_cred").findOne({ email: req.body.email });
 
     if (result) {
-      console.log("이미 등록된 이메일입니다.");
-      return;
+      res.status(500).json("이미 등록된 이메일입니다.");
     }
 
     // 실행

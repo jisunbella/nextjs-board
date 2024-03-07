@@ -4,7 +4,7 @@ import LoginBtn from "./LoginBtn";
 import SignUpBtn from "./SignUpBtn";
 import LogoutBtn from "./LogoutBtn";
 
-import { useSession, getSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 
 export default function LoginStatus() {
   const { data: session, status } = useSession();
@@ -16,7 +16,6 @@ export default function LoginStatus() {
   if (status === "unauthenticated") {
     return <p>Access Denied</p>
   }
-  console.log("세션? >>>>>>>>>>>>>>>>>>>>>>>>>>> ", session);
 
   return (
     <span>

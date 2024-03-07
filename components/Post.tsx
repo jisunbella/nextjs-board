@@ -14,25 +14,21 @@ import PostBtns from "@/components/PostBtns";
 // }
 
 const Post = (props: any) => {
-  console.log("PROPS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", props)
   const { postId, session } = props;
-  // const [data, setData] = useState<PostData>();
   const [data, setData] = useState<any>();
 
   useEffect(() => {
-    fetch(`/api/post/detail?id=${postId}`)
-      .then((res) => {
-        res.json();
-      })
-      .then((res: any) => {
-        setData(res);
-
-        console.log("DATA >>>>>>>>>>>>>>>>>>>>>>>>>>> ", data)
+    fetch(`/api/post/detail/${postId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
       })
       .catch(error => {
         console.error("Error fetching data", error);
       })
   }, []);
+
+  console.log("data", data)
 
   return (
     <div>
@@ -44,7 +40,7 @@ const Post = (props: any) => {
         <div className='content-author'>작성자: {data?.author_name}</div>
         <p className='content-text'>{data?.content}</p>
       </div>
-      <Comment _parentId={data?._id} />
+      <Comment _parentId={postId} />
     </div>
   )
 }
