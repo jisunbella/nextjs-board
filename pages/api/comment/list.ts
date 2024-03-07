@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const result = await db.collection("comment").find({
-      parentId: new ObjectId(_id) // todo: 왜 밑줄인지..
+      parentId: new ObjectId(_id)
     }).toArray();
 
     res.status(200).json(result);
