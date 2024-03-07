@@ -15,11 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const db = (await connectDB).db("myapp");
       const data = await db.collection("board").findOne({ _id: new ObjectId(_id) });
-      console.log("삭제할 데이터: ", data);
 
       if (session.user?.email === data?.author_id) {
-        console.log("글쓴이 == 로그인 한 유저");
-
         const result = await db.collection("board").deleteOne({
           _id: new ObjectId(_id)
         });
@@ -30,7 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           res.status(500).json("실패");
         }
       } else {
-        console.log("글쓴이 != 로그인 한 유저");
         res.status(500).json("실패");
       }
     } catch (error) {

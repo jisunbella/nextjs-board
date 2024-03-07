@@ -9,7 +9,6 @@ export default function Comment(props: any) {
 
   
   useEffect(() => {
-    console.log("_parentId", _parentId)
     fetch(`/api/comment/list?id=${_parentId}`)
       .then(res => res.json())
       .then((data: any) => {

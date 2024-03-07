@@ -28,8 +28,6 @@ const Post = (props: any) => {
       })
   }, []);
 
-  console.log("data", data)
-
   return (
     <div>
       {

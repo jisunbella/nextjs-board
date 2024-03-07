@@ -20,7 +20,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   let session: SessionType = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
-  console.log(session)
 
   return (
     <html lang="en">
