@@ -8,7 +8,6 @@ type PostForm = {
   content: string;
 }
 
-
 const WritePostForm = () => {
   const [formData, setFormData] = useState<PostForm>({
     title: "",

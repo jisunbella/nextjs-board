@@ -7,24 +7,35 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // session으로 회원 정보 가져오기
   const session: SessionType = await getServerSession(req, res, authOptions);
+
   if (!session) {
-    return;
+    return res.status(400).json({ error: "session is null." });
   }
 
   if (req.method == "POST") {
-    req.body = JSON.parse(req.body);
+    const params = JSON.parse(req.body);
+    
+    if (!params) {
+      return res.status(400).json({ error: "Parameter is required." });
+    }
 
     const newComment = {
-      content: req.body.comment,
-      parentId: new ObjectId(req.body._parentId),
+      content: params.comment,
+      parentId: new ObjectId(params._parentId),
       author: session.user?.email,
       author_name: session.user?.name
     }
     
     const db = (await connectDB).db("myapp");
-    const result = await db.collection("comment").insertOne(newComment);
     
-    res.status(200).json("저장완료")
-  }
+    try {
+      await db.collection("comment").insertOne(newComment);
+      
+      res.status(200).json("Your comment saved successfully.");
 
+    } catch (error) {
+      console.error("Error saving comments:", error);
+      return res.status(500).json({ error: "An error occurred while saving comments." });
+    }
+  }
 }
