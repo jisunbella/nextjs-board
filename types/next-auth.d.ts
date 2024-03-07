@@ -7,8 +7,12 @@ declare module "next-auth" {
       name: string | undefined | null;
       email: string | undefined | null;
     }
-      // username?: string | undefined | null;
-      // uid?: string | undefined | null;
-    // } & DefaultSession["user"];
   }
+
+  type SessionType = {
+    user?: {
+      name: string | undefined | null;
+      email: string | undefined | null;
+    }
+  } | null
 }

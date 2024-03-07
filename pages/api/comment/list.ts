@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const _id = req.query.id;
+  const _id = typeof req.query._id === "string" ? req.query._id : "";
 
   if (!_id) res.status(500).json("오류가 발생했습니다.");
   

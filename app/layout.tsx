@@ -4,7 +4,7 @@ import Link from "next/link";
 import LoginBtn from "../components/LoginBtn";
 import LogoutBtn from "../components/LogoutBtn";
 import SignUpBtn from "../components/SignUpBtn";
-import { getServerSession } from "next-auth";
+import { SessionType, getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const metadata: Metadata = {
@@ -12,12 +12,7 @@ export const metadata: Metadata = {
   description: "by 지선",
 };
 
-type SessionType = {
-  user?: {
-    name: string | undefined | null;
-    email: string | undefined | null;
-  }
-} | null
+
 
 export default async function RootLayout({
   children,

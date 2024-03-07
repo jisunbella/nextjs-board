@@ -1,11 +1,11 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
-import { getServerSession } from "next-auth";
+import { SessionType, getServerSession } from "next-auth";
 import { authOptions } from "../../auth/[...nextauth]";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const session = await getServerSession(req, res, authOptions);  
+  const session: SessionType = await getServerSession(req, res, authOptions);  
   
   if (!session) return;
   
