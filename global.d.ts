@@ -4,4 +4,10 @@ declare global {
   namespace globalThis {
     var _mongo: Promise<MongoClient>
   }
+
+  // namespace Express {
+  //   interface Response {
+  //     yourCustomResponse: yourType
+  //   }
+  // }
 };
