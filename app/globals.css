@@ -11,6 +11,16 @@ body {
   width: 100%;
 }
 
+/* dark mode */
+.dark-mode .navbar {
+  background: #222;
+}
+
+.dark-mode .navbar a {
+  color: white;
+}
+
+
 a {
   text-decoration: none;
   color: black;
