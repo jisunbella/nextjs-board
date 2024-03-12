@@ -1,23 +1,37 @@
 "use client"
 
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const DarkMode = () => {
+  const router = useRouter();
+
   useEffect(() => {
     if (!document.cookie) {
       return;
     }
-
-    const cookieValue = ('; '+document.cookie)?.split(`; mode=`)?.pop()?.split(';')[0]
-
+    
+    const cookieValue = ('; ' + document.cookie)?.split(`; mode=`)?.pop()?.split(';')[0];
     if (cookieValue) {
       document.cookie = "mode=light; max-age=" + (2600 * 24 * 400)
     }
 
   }, []);
 
+  const changeMode = () => {
+    const cookieValue = ('; ' + document.cookie)?.split(`; mode=`)?.pop()?.split(';')[0];
+
+    if (cookieValue === "light") {
+      document.cookie = 'mode=dark; max-age=' + (3600 * 24 * 400);
+      router.refresh();
+    } else {
+      document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400);
+      router.refresh();
+    }
+  }
+
   return (
-    <span>🌙</span>
+    <span onClick={changeMode}>🌙</span>
   )
 }
 
