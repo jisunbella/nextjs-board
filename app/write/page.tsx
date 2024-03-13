@@ -27,7 +27,6 @@ export default function Write() {
                 const fileName = encodeURIComponent(file.name); // 한글 파일명 깨지는거 대비
                 let res: any = await fetch("/api/post/image?file=" + fileName);
                 res = await res.json();
-                console.log("res", res);
 
                 const formData = new FormData(); // form 태그랑 똑같이 동작함
                 Object.entries({ ...res.fields, file }).forEach(([key, value]) => {

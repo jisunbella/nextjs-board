@@ -19,10 +19,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let session: SessionType = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
 
-  let cookie = cookies().get("mode");
-  console.log(cookie);
+  const session: SessionType = await getServerSession(authOptions); // 서버 컴포넌트, 서버 기능 안에서만 사용 가능
+  const cookie = cookies().get("mode");
 
   return (
     <html lang="en">
