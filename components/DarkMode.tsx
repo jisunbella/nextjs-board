@@ -31,7 +31,7 @@ const DarkMode = () => {
   }
 
   return (
-    <span onClick={changeMode}>🌙</span>
+    <span onClick={changeMode} style={{ cursor: "pointer"}}>🌙</span>
   )
 }
 
