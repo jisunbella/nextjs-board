@@ -16,9 +16,10 @@ body {
   background: #222;
 }
 
-.dark-mode .navbar a {
+.dark-mode .navbar a, .dark-mode .navbar span {
   color: white;
 }
+
 
 
 a {
@@ -142,15 +143,21 @@ input {
   border-radius: 5px;
 }
 
-button {
+/* button {
   padding: 5px 15px;
   border: 1px solid black;
   background: #fff;
   font-size: 12px;
   font-weight: 800;
   margin: 0 3px;
-  /* border-radius: 5px; */
-  /* background: rgb(249, 250, 255); */
+} */
+
+button {
+  padding: 10px 15px;
+  background: lightgray;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .btn-write:hover, .btn-write a:hover {

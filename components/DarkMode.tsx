@@ -23,7 +23,7 @@ const DarkMode = () => {
 
     if (cookieValue === "light") {
       document.cookie = 'mode=dark; max-age=' + (3600 * 24 * 400);
-      router.refresh();
+      router.refresh(); // 쿠키 바꾸고 새로고침 해야 적용됨
     } else {
       document.cookie = 'mode=light; max-age=' + (3600 * 24 * 400);
       router.refresh();
